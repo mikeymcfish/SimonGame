@@ -1,0 +1,163 @@
+format_version: '2'
+name: SimonGame
+versions:
+  api: '1.0'
+  backend: 1.8.580
+  commit: f3d8d96e294de8dee688333bbbe8d8458a4f6b4c
+  content: unknown
+  content_pack_name: unknown
+  format: '2'
+  frontend: 1.8.580
+  packs_version_avr8: 1.0.1463
+  packs_version_qtouch: unknown
+  packs_version_sam: 1.0.1726
+  version_backend: 1.8.580
+  version_frontend: ''
+board:
+  identifier: CustomBoard
+  device: ATmega48A-MU
+details: null
+application: null
+middlewares: {}
+drivers:
+  CPU:
+    user_label: CPU
+    definition: 'Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::CPU::driver_config_definition::SYSCTRL::Drivers:SYSCTRL:'
+    functionality: System
+    api: 'Drivers:SYSCTRL:'
+    configuration:
+      $input: 8000000
+      RESERVED_InputFreq: 8000000
+      _$freq_output_Async input clock: '32768'
+      _$freq_output_Input clock: 16000000
+      async_input_speed: 32768
+      clkadc_oscillator: Input clock
+      clkasy_oscillator: Async input clock
+      clkcpu_oscillator: Input clock
+      clkio_oscillator: Input clock
+      clkptc_oscillator: Input clock
+      cpu_clock_source: CLKcpu
+      cpu_sreg_i: false
+      enable_async_input: true
+      enable_clkadc: true
+      enable_clkasy: true
+      enable_clkcpu: true
+      enable_clkio: true
+      enable_clkptc: true
+      enable_core_clock: true
+      enable_input: true
+      input_speed: 16000000
+      pm_ivsel: Interrupt vector placed at the beginning of main FLASH memory
+      pm_pud: false
+      pm_se: false
+      pm_sm: Idle
+      prescaler_divider: '1'
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: Core
+          input: Core
+          external: false
+          external_frequency: 0
+        configuration: {}
+pads:
+  green_led:
+    name: PD3
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD3
+    mode: Digital output
+    user_label: green_led
+    configuration: null
+  orange_led:
+    name: PD4
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD4
+    mode: Digital output
+    user_label: orange_led
+    configuration: null
+  red_led:
+    name: PD5
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD5
+    mode: Digital output
+    user_label: red_led
+    configuration: null
+  red_btn:
+    name: PB0
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB0
+    mode: Advanced
+    user_label: red_btn
+    configuration:
+      pad_dir: In
+      pad_initial_level: High
+      pad_pull_config: Pull-up
+  orange_btn:
+    name: PB1
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB1
+    mode: Advanced
+    user_label: orange_btn
+    configuration:
+      pad_dir: In
+      pad_initial_level: High
+      pad_pull_config: Pull-up
+  green_btn:
+    name: PB2
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB2
+    mode: Advanced
+    user_label: green_btn
+    configuration:
+      pad_dir: In
+      pad_initial_level: High
+      pad_pull_config: Pull-up
+  blue_btn:
+    name: PB3
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB3
+    mode: Advanced
+    user_label: blue_btn
+    configuration:
+      pad_dir: In
+      pad_initial_level: High
+      pad_pull_config: Pull-up
+  spkr:
+    name: PB4
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB4
+    mode: Digital output
+    user_label: spkr
+    configuration: null
+  test:
+    name: PC6
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PC6
+    mode: Advanced
+    user_label: test
+    configuration:
+      pad_dir: In
+      pad_initial_level: High
+      pad_pull_config: Pull-up
+  blue_lef:
+    name: PD2
+    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD2
+    mode: Digital output
+    user_label: blue_lef
+    configuration: null
+toolchain_options:
+- definition:
+    identifier: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::environment_definition::All:Microchip.Studio.xc8:7.0.0
+  configuration:
+    compiler_config:
+      xc8_compiler_miscellaneous_OtherFlags: -std=gnu99
+    linker_config:
+      xc8_linker_miscellaneous_LinkerFlags: ''
+- definition:
+    identifier: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::environment_definition::All:Microchip.Studio.gcc:7.0.0
+  configuration:
+    compiler_config:
+      avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
+    linker_config:
+      avrgcc_linker_miscellaneous_LinkerFlags: ''
+- definition:
+    identifier: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::environment_definition::All:Atmel.Studio:7.0.0
+  configuration:
+    compiler_config:
+      avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
+    linker_config:
+      avrgcc_linker_miscellaneous_LinkerFlags: ''
+static_files: []
