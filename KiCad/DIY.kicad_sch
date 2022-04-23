@@ -644,7 +644,7 @@
         )
       )
     )
-    (symbol "SW_Push_1" (pin_numbers hide) (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
+    (symbol "SW_Push_1" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
       (property "Reference" "SW1" (id 0) (at -6.35 1.27 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -1710,7 +1710,7 @@
     (property "Reference" "R4" (id 0) (at 115.57 143.51 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "470Ω" (id 1) (at 116.84 147.32 90)
+    (property "Value" "220Ω" (id 1) (at 116.84 147.32 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (id 2) (at 111.76 144.78 0)
@@ -1779,7 +1779,7 @@
     (property "Value" "Speaker" (id 1) (at 115.57 100.3299 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "SamacSys_Parts:CPT111783SMTTR" (id 2) (at 110.49 102.87 0)
+    (property "Footprint" "SamacSys_Parts:PKM13EPYH4002-B0" (id 2) (at 110.49 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 110.236 99.06 0)
@@ -1826,7 +1826,7 @@
     (property "Reference" "R3" (id 0) (at 115.57 135.89 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "330Ω" (id 1) (at 116.84 139.7 90)
+    (property "Value" "220Ω" (id 1) (at 116.84 139.7 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (id 2) (at 111.76 137.16 0)
@@ -1880,7 +1880,7 @@
     (property "Reference" "R2" (id 0) (at 115.57 128.27 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "330Ω" (id 1) (at 116.84 132.08 90)
+    (property "Value" "120Ω" (id 1) (at 116.84 132.08 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (id 2) (at 111.76 129.54 0)
@@ -1927,7 +1927,7 @@
     (in_bom yes) (on_board yes)
     (uuid d720c83b-7eb4-437b-851d-0c48c626245f)
     (property "Reference" "R1" (id 0) (at 114.3 120.65 90))
-    (property "Value" "10Ω" (id 1) (at 114.3 124.46 90))
+    (property "Value" "120Ω" (id 1) (at 114.3 124.46 90))
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (id 2) (at 111.76 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -2061,7 +2061,7 @@
 
   (symbol (lib_name "SW_Push_2") (lib_id "Switch:SW_Push") (at 111.76 68.58 0) (unit 1)
     (in_bom yes) (on_board yes)
-    (uuid fd73bab2-fc71-4b2e-9d46-53bd4b06d591)
+    (uuid fd73bab2-fc71-4b2e-9d46-53bd4b06d592)
     (property "Reference" "SW2" (id 0) (at 102.87 67.31 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
@@ -2151,19 +2151,19 @@
       (reference "JP1") (unit 1) (value "test") (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
     )
     (path "/960cb7f4-0c08-41c0-b8ff-fa20c1cc8bf2"
-      (reference "LS1") (unit 1) (value "Speaker") (footprint "SamacSys_Parts:CPT111783SMTTR")
+      (reference "LS1") (unit 1) (value "Speaker") (footprint "SamacSys_Parts:PKM13EPYH4002-B0")
     )
     (path "/d720c83b-7eb4-437b-851d-0c48c626245f"
-      (reference "R1") (unit 1) (value "10Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (reference "R1") (unit 1) (value "120Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
     )
     (path "/b50c6642-ec2d-4f21-8bcb-af36206e84ce"
-      (reference "R2") (unit 1) (value "330Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (reference "R2") (unit 1) (value "120Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
     )
     (path "/a5104a57-c32b-4047-88ce-239a8e9750f5"
-      (reference "R3") (unit 1) (value "330Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (reference "R3") (unit 1) (value "220Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
     )
     (path "/82d3c384-2ad1-4b86-941e-63010036e8d6"
-      (reference "R4") (unit 1) (value "470Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
+      (reference "R4") (unit 1) (value "220Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
     )
     (path "/93d0e0ea-0245-4d61-aa0f-470145544613"
       (reference "R5") (unit 1) (value "470Ω") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
@@ -2174,7 +2174,7 @@
     (path "/f55c2a68-a2b8-4e6a-b2c9-58cde14b36f2"
       (reference "SW1") (unit 1) (value "red") (footprint "Button_Switch_THT:SW_PUSH_6mm")
     )
-    (path "/fd73bab2-fc71-4b2e-9d46-53bd4b06d591"
+    (path "/fd73bab2-fc71-4b2e-9d46-53bd4b06d592"
       (reference "SW2") (unit 1) (value "yellow") (footprint "Button_Switch_THT:SW_PUSH_6mm")
     )
     (path "/05e65b06-4a6d-49f9-a6e8-c5bc53ef3e2a"
