@@ -1,9 +1,7 @@
-
-
 /**
  * \file
  *
- * \brief Tinymega System related support
+ * \brief Tiny System Related Support
  *
  (c) 2020 Microchip Technology Inc. and its subsidiaries.
 
@@ -24,10 +22,12 @@
     FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
     ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
     THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+ *
  */
 
 /**
- * \addtogroup doc_driver_system
+ * \defgroup doc_driver_utils_mcu_init MCU Init
+ * \ingroup doc_driver_utils
  *
  * \section doc_driver_system_rev Revision History
  * - v0.0.0.1 Initial Commit
@@ -38,31 +38,33 @@
 #ifndef SYSTEM_INCLUDED
 #define SYSTEM_INCLUDED
 
+#include "ccp.h"
 #include "port.h"
-#include <protected_io.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define MCU_RESET_CAUSE_POR (1 << PORF)
-#define MCU_RESET_CAUSE_EXT (1 << EXTRF)
-#define MCU_RESET_CAUSE_BOR (1 << BORF)
-#define MCU_RESET_CAUSE_WDT (1 << WDRF)
-
-static inline void mcu_init(void)
+void mcu_init(void)
 {
-	/* On AVR devices all peripherals are enabled from power on reset, this
+	/* On AVR devices all peripherals are enable from power on reset, this
 	 * disables all peripherals to save power. Driver shall enable
 	 * peripheral if used */
 
-	PRR = (1 << PRSPI) | (1 << PRTIM2) | (1 << PRTIM0) | (1 << PRTIM1) | (1 << PRTWI) | (1 << PRUSART0) | (1 << PRADC);
-
 	/* Set all pins to low power mode */
-	PORTB_set_port_dir(0xff, PORT_DIR_OFF);
-	PORTC_set_port_dir(0x7f, PORT_DIR_OFF);
-	PORTD_set_port_dir(0xff, PORT_DIR_OFF);
-}
 
+	for (uint8_t i = 0; i < 8; i++) {
+		*((uint8_t *)&PORTA + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+
+	for (uint8_t i = 0; i < 8; i++) {
+		*((uint8_t *)&PORTB + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+
+	for (uint8_t i = 0; i < 8; i++) {
+		*((uint8_t *)&PORTC + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
+	}
+}
 #ifdef __cplusplus
 }
 #endif

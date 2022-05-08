@@ -65,6 +65,13 @@
 #include <ioavr.h>
 #include <intrinsics.h>
 
+#ifndef CCP_IOREG_gc
+#define CCP_IOREG_gc 0xD8 /* CPU_CCP_IOREG_gc */
+#endif
+#ifndef CCP_SPM_gc
+#define CCP_SPM_gc 0x9D /* CPU_CCP_SPM_gc */
+#endif
+
 #else
 #error Unsupported compiler.
 #endif

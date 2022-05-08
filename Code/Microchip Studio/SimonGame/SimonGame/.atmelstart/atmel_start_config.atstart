@@ -1,5 +1,5 @@
 format_version: '2'
-name: SimonGame
+name: My Project
 versions:
   api: '1.0'
   backend: 1.8.580
@@ -15,149 +15,223 @@ versions:
   version_frontend: ''
 board:
   identifier: CustomBoard
-  device: ATmega48A-MU
+  device: ATtiny3217-MFR
 details: null
 application: null
 middlewares: {}
 drivers:
-  CPU:
-    user_label: CPU
-    definition: 'Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::CPU::driver_config_definition::SYSCTRL::Drivers:SYSCTRL:'
+  CLKCTRL:
+    user_label: CLKCTRL
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::CLKCTRL::driver_config_definition::CLKCTRL::Drivers:CLKCTRL:Init
     functionality: System
-    api: 'Drivers:SYSCTRL:'
+    api: Drivers:CLKCTRL:Init
     configuration:
-      $input: 8000000
-      RESERVED_InputFreq: 8000000
-      _$freq_output_Async input clock: '32768'
-      _$freq_output_Input clock: 16000000
-      async_input_speed: 32768
-      clkadc_oscillator: Input clock
-      clkasy_oscillator: Async input clock
-      clkcpu_oscillator: Input clock
-      clkio_oscillator: Input clock
-      clkptc_oscillator: Input clock
-      cpu_clock_source: CLKcpu
-      cpu_sreg_i: false
-      enable_async_input: true
-      enable_clkadc: true
-      enable_clkasy: true
-      enable_clkcpu: true
-      enable_clkio: true
-      enable_clkptc: true
-      enable_core_clock: true
-      enable_input: true
-      input_speed: 16000000
-      pm_ivsel: Interrupt vector placed at the beginning of main FLASH memory
-      pm_pud: false
-      pm_se: false
-      pm_sm: Idle
-      prescaler_divider: '1'
+      $input: 20000000
+      $input_id: 20MHz Internal Oscillator (OSC20M)
+      RESERVED_InputFreq: 20000000
+      RESERVED_InputFreq_id: 20MHz Internal Oscillator (OSC20M)
+      _$freq_output_32KHz divided by 32: 1024
+      _$freq_output_External Clock (EXTCLK): '32768'
+      _$freq_output_Main Clock (CLK_MAIN): 3333333.3333333335
+      _$freq_output_TCD0 Clock (CLK_TCD0): 20000000
+      clkctrl_mclkctrla_cksel: 20MHz Internal Oscillator (OSC20M)
+      clkctrl_mclkctrla_clkout: false
+      clkctrl_mclkctrlb_pdiv: '6'
+      clkctrl_mclkctrlb_pen: true
+      clkctrl_mclklock_locken: false
+      clkctrl_osc16mctrla_runstdby: false
+      clkctrl_osc20mctrla_runstdby: false
+      clkctrl_osc32kctrla_runstdby: false
+      clkctrl_xosc32kctrla_csut: 1k cycles
+      clkctrl_xosc32kctrla_runstdby: false
+      clkctrl_xosc32kctrla_sel: false
+      cpu_clock_source: Main Clock (CLK_MAIN)
+      enable_clk_per: true
+      enable_extclk: true
+      enable_main: true
+      enable_osc16m: true
+      enable_osc20m: true
+      enable_osculp1k: true
+      enable_osculp32k: true
+      enable_tcd0: true
+      enable_xosc32kctrla: false
+      extosc: 32768
+      nvm_clock_source: Main Clock (CLK_MAIN)
+      osculp1k_clksel_clksel: 32KHz Internal Ultra Low Power Oscillator (OSCULP32K)
+      ram_clock_source: Main Clock (CLK_MAIN)
+      tcd0_ctrla_clksel: 20MHz Internal Oscillator (OSC20M)
+      tcd0_ctrla_syncpres: '1'
+      xosc32kctrla_arch_enable: false
     optional_signals: []
     variant: null
     clocks:
       domain_group:
         nodes:
-        - name: Core
-          input: Core
+        - name: CPU
+          input: CPU
           external: false
           external_frequency: 0
         configuration: {}
+  CPUINT:
+    user_label: CPUINT
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::CPUINT::driver_config_definition::CPUINT::Drivers:CPUINT:Init
+    functionality: System
+    api: Drivers:CPUINT:Init
+    configuration:
+      cpuint_ctrla_cvt: false
+      cpuint_ctrla_ivsel: false
+      cpuint_ctrla_lvl0rr: false
+      cpuint_global_interrupt: false
+      cpuint_lvl0pri_lvl0pri: 0
+      cpuint_lvl1vec_lvl1vec: 0
+      inc_isr_harness: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group: null
+  SLPCTRL:
+    user_label: SLPCTRL
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::SLPCTRL::driver_config_definition::SLPCTRL::Drivers:SLPCTRL:Init
+    functionality: System
+    api: Drivers:SLPCTRL:Init
+    configuration:
+      slpctrl_ctrla_sen: false
+      slpctrl_ctrla_smode: Idle mode
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group: null
+  BOD:
+    user_label: BOD
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::BOD::driver_config_definition::BOD::Drivers:BOD:Init
+    functionality: System
+    api: Drivers:BOD:Init
+    configuration:
+      bod_ctrla_sleep: Disabled
+      bod_intctrl_vlmcfg: Interrupt when supply goes below VLM level
+      bod_intctrl_vlmie: false
+      bod_vlmctrla_vlmlvl: VLM threshold 5% above BOD level
+      inc_isr_harness: false
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group:
+        nodes:
+        - name: BOD
+          input: 32KHz divided by 32
+          external: false
+          external_frequency: 0
+        configuration:
+          bod_clock_source: 32KHz divided by 32
 pads:
-  green_led:
-    name: PD3
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD3
+  SEG0EN:
+    name: PA2
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PA2
     mode: Digital output
-    user_label: green_led
+    user_label: SEG0EN
     configuration: null
-  orange_led:
-    name: PD4
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD4
+  SEG1EN:
+    name: PA3
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PA3
     mode: Digital output
-    user_label: orange_led
+    user_label: SEG1EN
     configuration: null
-  red_led:
-    name: PD5
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD5
+  SEG0:
+    name: PA4
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PA4
     mode: Digital output
-    user_label: red_led
+    user_label: SEG0
     configuration: null
-  red_btn:
-    name: PB0
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB0
-    mode: Advanced
-    user_label: red_btn
-    configuration:
-      pad_dir: In
-      pad_initial_level: High
-      pad_pull_config: Pull-up
-  orange_btn:
-    name: PB1
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB1
-    mode: Advanced
-    user_label: orange_btn
-    configuration:
-      pad_dir: In
-      pad_initial_level: High
-      pad_pull_config: Pull-up
-  green_btn:
-    name: PB2
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB2
-    mode: Advanced
-    user_label: green_btn
-    configuration:
-      pad_dir: In
-      pad_initial_level: High
-      pad_pull_config: Pull-up
-  blue_btn:
+  SEG1:
+    name: PA5
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PA5
+    mode: Digital output
+    user_label: SEG1
+    configuration: null
+  SEG2:
+    name: PA6
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PA6
+    mode: Digital output
+    user_label: SEG2
+    configuration: null
+  LED_B:
     name: PB3
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB3
-    mode: Advanced
-    user_label: blue_btn
-    configuration:
-      pad_dir: In
-      pad_initial_level: High
-      pad_pull_config: Pull-up
-  spkr:
-    name: PB4
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PB4
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PB3
     mode: Digital output
-    user_label: spkr
+    user_label: LED_B
     configuration: null
-  test:
-    name: PC6
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PC6
-    mode: Advanced
-    user_label: test
-    configuration:
-      pad_dir: In
-      pad_initial_level: High
-      pad_pull_config: Pull-up
-  blue_lef:
-    name: PD2
-    definition: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::pad::PD2
+  LED_G:
+    name: PB2
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PB2
     mode: Digital output
-    user_label: blue_lef
+    user_label: LED_G
+    configuration: null
+  LED_Y:
+    name: PB1
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PB1
+    mode: Digital output
+    user_label: LED_Y
+    configuration: null
+  LED_R:
+    name: PB0
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PB0
+    mode: Digital output
+    user_label: LED_R
+    configuration: null
+  BTN_R:
+    name: PC0
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PC0
+    mode: Digital input
+    user_label: BTN_R
+    configuration:
+      pad_pull_config: Pull-up
+  BTN_Y:
+    name: PC1
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PC1
+    mode: Digital input
+    user_label: BTN_Y
+    configuration:
+      pad_pull_config: Pull-up
+  BTN_G:
+    name: PC2
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PC2
+    mode: Digital input
+    user_label: BTN_G
+    configuration:
+      pad_pull_config: Pull-up
+  BTN_B:
+    name: PC3
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PC3
+    mode: Digital input
+    user_label: BTN_B
+    configuration:
+      pad_pull_config: Pull-up
+  SPEAKER:
+    name: PA1
+    definition: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::pad::PA1
+    mode: Digital output
+    user_label: SPEAKER
     configuration: null
 toolchain_options:
 - definition:
-    identifier: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::environment_definition::All:Microchip.Studio.xc8:7.0.0
+    identifier: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::environment_definition::All:Microchip.Studio.gcc:7.0.0
+  configuration:
+    compiler_config:
+      avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
+    linker_config:
+      avrgcc_linker_miscellaneous_LinkerFlags: ''
+- definition:
+    identifier: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::environment_definition::All:Atmel.Studio:7.0.0
+  configuration:
+    compiler_config:
+      avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
+    linker_config:
+      avrgcc_linker_miscellaneous_LinkerFlags: ''
+- definition:
+    identifier: Atmel:ATtiny417_81x_161x_321x_drivers:1.0.0::ATtiny3217-MFR::environment_definition::All:Microchip.Studio.xc8:7.0.0
   configuration:
     compiler_config:
       xc8_compiler_miscellaneous_OtherFlags: -std=gnu99
     linker_config:
       xc8_linker_miscellaneous_LinkerFlags: ''
-- definition:
-    identifier: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::environment_definition::All:Microchip.Studio.gcc:7.0.0
-  configuration:
-    compiler_config:
-      avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
-    linker_config:
-      avrgcc_linker_miscellaneous_LinkerFlags: ''
-- definition:
-    identifier: Atmel:ATMega48_88_168_328_drivers:1.0.0::ATmega48A-MU::environment_definition::All:Atmel.Studio:7.0.0
-  configuration:
-    compiler_config:
-      avrgcc_compiler_miscellaneous_OtherFlags: -std=gnu99
-    linker_config:
-      avrgcc_linker_miscellaneous_LinkerFlags: ''
 static_files: []

@@ -43,185 +43,189 @@ void system_init()
 {
 	mcu_init();
 
-	/* PORT setting on PB0 */
+	/* PORT setting on PA1 */
 
-	red_btn_set_dir(
-	    // <y> Pin direction
-	    // <id> pad_dir
-	    // <PORT_DIR_OFF"> Off
-	    // <PORT_DIR_IN"> In
-	    // <PORT_DIR_OUT"> Out
-	    PORT_DIR_IN);
+	// Set pin direction to output
 
-	red_btn_set_level(
+	SPEAKER_set_level(
 	    // <y> Initial level
 	    // <id> pad_initial_level
 	    // <false"> Low
 	    // <true"> High
-	    true);
+	    false);
 
-	red_btn_set_pull_mode(
-	    // <y> Pull configuration
-	    // <id> pad_pull_config
-	    // <PORT_PULL_OFF"> Off
-	    // <PORT_PULL_UP"> Pull-up
-	    PORT_PULL_UP);
+	SPEAKER_set_dir(PORT_DIR_OUT);
+
+	/* PORT setting on PA2 */
+
+	// Set pin direction to output
+
+	SEG0EN_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	SEG0EN_set_dir(PORT_DIR_OUT);
+
+	/* PORT setting on PA3 */
+
+	// Set pin direction to output
+
+	SEG1EN_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	SEG1EN_set_dir(PORT_DIR_OUT);
+
+	/* PORT setting on PA4 */
+
+	// Set pin direction to output
+
+	SEG0_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	SEG0_set_dir(PORT_DIR_OUT);
+
+	/* PORT setting on PA5 */
+
+	// Set pin direction to output
+
+	SEG1_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	SEG1_set_dir(PORT_DIR_OUT);
+
+	/* PORT setting on PA6 */
+
+	// Set pin direction to output
+
+	SEG2_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	SEG2_set_dir(PORT_DIR_OUT);
+
+	/* PORT setting on PB0 */
+
+	// Set pin direction to output
+
+	LED_R_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    false);
+
+	LED_R_set_dir(PORT_DIR_OUT);
 
 	/* PORT setting on PB1 */
 
-	orange_btn_set_dir(
-	    // <y> Pin direction
-	    // <id> pad_dir
-	    // <PORT_DIR_OFF"> Off
-	    // <PORT_DIR_IN"> In
-	    // <PORT_DIR_OUT"> Out
-	    PORT_DIR_IN);
+	// Set pin direction to output
 
-	orange_btn_set_level(
+	LED_Y_set_level(
 	    // <y> Initial level
 	    // <id> pad_initial_level
 	    // <false"> Low
 	    // <true"> High
-	    true);
+	    false);
 
-	orange_btn_set_pull_mode(
-	    // <y> Pull configuration
-	    // <id> pad_pull_config
-	    // <PORT_PULL_OFF"> Off
-	    // <PORT_PULL_UP"> Pull-up
-	    PORT_PULL_UP);
+	LED_Y_set_dir(PORT_DIR_OUT);
 
 	/* PORT setting on PB2 */
 
-	green_btn_set_dir(
-	    // <y> Pin direction
-	    // <id> pad_dir
-	    // <PORT_DIR_OFF"> Off
-	    // <PORT_DIR_IN"> In
-	    // <PORT_DIR_OUT"> Out
-	    PORT_DIR_IN);
+	// Set pin direction to output
 
-	green_btn_set_level(
+	LED_G_set_level(
 	    // <y> Initial level
 	    // <id> pad_initial_level
 	    // <false"> Low
 	    // <true"> High
-	    true);
+	    false);
 
-	green_btn_set_pull_mode(
-	    // <y> Pull configuration
-	    // <id> pad_pull_config
-	    // <PORT_PULL_OFF"> Off
-	    // <PORT_PULL_UP"> Pull-up
-	    PORT_PULL_UP);
+	LED_G_set_dir(PORT_DIR_OUT);
 
 	/* PORT setting on PB3 */
 
-	blue_btn_set_dir(
-	    // <y> Pin direction
-	    // <id> pad_dir
-	    // <PORT_DIR_OFF"> Off
-	    // <PORT_DIR_IN"> In
-	    // <PORT_DIR_OUT"> Out
-	    PORT_DIR_IN);
+	// Set pin direction to output
 
-	blue_btn_set_level(
+	LED_B_set_level(
 	    // <y> Initial level
 	    // <id> pad_initial_level
 	    // <false"> Low
 	    // <true"> High
-	    true);
+	    false);
 
-	blue_btn_set_pull_mode(
+	LED_B_set_dir(PORT_DIR_OUT);
+
+	/* PORT setting on PC0 */
+
+	// Set pin direction to input
+	BTN_R_set_dir(PORT_DIR_IN);
+
+	BTN_R_set_pull_mode(
 	    // <y> Pull configuration
 	    // <id> pad_pull_config
 	    // <PORT_PULL_OFF"> Off
 	    // <PORT_PULL_UP"> Pull-up
 	    PORT_PULL_UP);
 
-	/* PORT setting on PB4 */
+	/* PORT setting on PC1 */
 
-	// Set pin direction to output
-	spkr_set_dir(PORT_DIR_OUT);
+	// Set pin direction to input
+	BTN_Y_set_dir(PORT_DIR_IN);
 
-	spkr_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    false);
-
-	/* PORT setting on PC6 */
-
-	test_set_dir(
-	    // <y> Pin direction
-	    // <id> pad_dir
-	    // <PORT_DIR_OFF"> Off
-	    // <PORT_DIR_IN"> In
-	    // <PORT_DIR_OUT"> Out
-	    PORT_DIR_IN);
-
-	test_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    true);
-
-	test_set_pull_mode(
+	BTN_Y_set_pull_mode(
 	    // <y> Pull configuration
 	    // <id> pad_pull_config
 	    // <PORT_PULL_OFF"> Off
 	    // <PORT_PULL_UP"> Pull-up
 	    PORT_PULL_UP);
 
-	/* PORT setting on PD2 */
+	/* PORT setting on PC2 */
 
-	// Set pin direction to output
-	blue_lef_set_dir(PORT_DIR_OUT);
+	// Set pin direction to input
+	BTN_G_set_dir(PORT_DIR_IN);
 
-	blue_lef_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    false);
+	BTN_G_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
 
-	/* PORT setting on PD3 */
+	/* PORT setting on PC3 */
 
-	// Set pin direction to output
-	green_led_set_dir(PORT_DIR_OUT);
+	// Set pin direction to input
+	BTN_B_set_dir(PORT_DIR_IN);
 
-	green_led_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    false);
+	BTN_B_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_UP);
 
-	/* PORT setting on PD4 */
+	CLKCTRL_init();
 
-	// Set pin direction to output
-	orange_led_set_dir(PORT_DIR_OUT);
+	CPUINT_init();
 
-	orange_led_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    false);
+	SLPCTRL_init();
 
-	/* PORT setting on PD5 */
-
-	// Set pin direction to output
-	red_led_set_dir(PORT_DIR_OUT);
-
-	red_led_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    false);
-
-	sysctrl_init();
+	BOD_init();
 }

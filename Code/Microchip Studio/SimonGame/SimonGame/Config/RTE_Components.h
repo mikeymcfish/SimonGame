@@ -40,7 +40,7 @@
  * \acme_license_stop
  *
  * Project: SimonGame
- * Target:  ATmega48A 
+ * Target:  ATtiny3217 
  *
  **/
 

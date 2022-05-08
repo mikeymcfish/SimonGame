@@ -41,7 +41,10 @@
 #include <port.h>
 #include <atmel_start_pins.h>
 
-#include <sysctrl.h>
+#include <clkctrl.h>
+#include <cpuint.h>
+#include <slpctrl.h>
+#include <bod.h>
 
 #ifdef __cplusplus
 extern "C" {

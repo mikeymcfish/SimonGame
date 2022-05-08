@@ -8,7 +8,17 @@ driver_isr.c
 
 main.c
 
+src\bod.c
+
+src\clkctrl.c
+
+src\cpuint.c
+
 src\driver_init.c
 
+src\organ.c
+
 src\protected_io.S
+
+src\slpctrl.c
 
