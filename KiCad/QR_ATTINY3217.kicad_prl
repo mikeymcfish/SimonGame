@@ -1,10 +1,10 @@
 {
   "board": {
-    "active_layer": 44,
+    "active_layer": 37,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_nets": [],
-    "high_contrast_mode": 0,
+    "high_contrast_mode": 1,
     "net_color_mode": 1,
     "opacity": {
       "pads": 1.0,
@@ -62,11 +62,11 @@
       35,
       36
     ],
-    "visible_layers": "0031000_80000001",
+    "visible_layers": "7f83c2f_80000001",
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "QR.kicad_prl",
+    "filename": "QR_ATTINY3217.kicad_prl",
     "version": 3
   },
   "project": {
